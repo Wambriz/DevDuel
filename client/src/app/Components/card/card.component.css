@@ -1,0 +1,75 @@
+.card {
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 40px;
+    /* Increased padding */
+    margin-top: 30px;
+    width: 90%;
+    /* Increased width */
+    max-width: 800px;
+    /* Increased max-width */
+    animation: fadeInUp 1s ease-in-out;
+    border: 2px solid #6e8efb;
+    /* Added border */
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    /* Increased gap */
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 30px;
+    /* Increased padding */
+    margin-bottom: 30px;
+    /* Increased margin */
+}
+
+.card-header img {
+    border-radius: 50%;
+    width: 150px;
+    /* Increased size */
+    height: 150px;
+    /* Increased size */
+}
+
+.card-header-info h2 {
+    margin: 0;
+    font-size: 32px;
+    /* Increased font size */
+    color: #6e8efb;
+}
+
+.card-header-info p {
+    margin: 10px 0;
+    font-size: 20px;
+    /* Increased font size */
+    color: #777;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-body p {
+    margin: 10px 0;
+    font-size: 20px;
+    /* Increased font size */
+    color: #333;
+    text-align: center;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

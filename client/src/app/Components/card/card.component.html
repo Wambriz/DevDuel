@@ -1,0 +1,21 @@
+<div class="card" *ngIf="userData">
+    <div class="card-header">
+        <img [src]="userData.avatar_url" alt="Avatar">
+        <div class="card-header-info">
+            <h2>{{ userData.name }}</h2>
+            <p>{{ userData.bio }}</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <p><strong>Username:</strong> {{ userData.username }}</p>
+        <p><strong>Location:</strong> {{ userData.location }}</p>
+        <p><strong>Titles:</strong> {{ userData.titles.join(', ') }}</p>
+        <p><strong>Favorite Language:</strong> {{ userData['favorite-language'] }}</p>
+        <p><strong>Total Stars:</strong> {{ userData['total-stars'] }}</p>
+        <p><strong>Highest Star Count:</strong> {{ userData['highest-starred'] }}</p>
+        <p><strong>Public Repos:</strong> {{ userData['public-repos'] }}</p>
+        <p><strong>Perfect Repos:</strong> {{ userData['perfect-repos'] }}</p>
+        <p><strong>Followers:</strong> {{ userData.followers }}</p>
+        <p><strong>Following:</strong> {{ userData.following }}</p>
+    </div>
+</div>
