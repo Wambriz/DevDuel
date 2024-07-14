@@ -1,8 +1,57 @@
+nav {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    padding: 20px 60px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease-in-out;
+}
+
+nav:hover {
+    background: linear-gradient(135deg, #a777e3, #6e8efb);
+}
+
+nav a {
+    text-decoration: none;
+}
+
 .link {
-font-family: 'Nunito';
-font-style: normal;
-font-weight: 700;
-font-size: 48px;
-text-align: center;
-color: #581DFF;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    text-align: center;
+    color: #ffffff;
+    margin: 0 50px;
+    transition: color 0.2s, transform 0.2s;
+    position: relative;
+}
+
+.link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #ffffff;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.link:hover {
+    color: #e1f1ff;
+    transform: scale(1.1);
+}
+
+.link:hover::after {
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 50px;
 }

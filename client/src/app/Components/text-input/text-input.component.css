@@ -1,12 +1,19 @@
 .username-input {
-  /* Rectangle 1 */
+  box-sizing: border-box;
+  width: 329px;
+  height: 61px;
+  padding: 10px;
+  font-size: 18px;
+  font-family: 'Nunito', sans-serif;
+  background: #ffffff;
+  border: 2px solid #6e8efb;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
 
-box-sizing: border-box;
-width: 329px;
-height: 61px;
-
-background: #E1F1FF;
-border: 1px solid rgba(0, 0, 0, 0.75);
-border-radius: 15px;
-
+.username-input:focus {
+  outline: none;
+  border-color: #a777e3;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
 }
