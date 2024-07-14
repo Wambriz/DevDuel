@@ -4,4 +4,8 @@
   <br />
   <br />
   <button class="submit-button" (click)="onSubmit()">Inspect</button>
+  <app-card *ngIf="userData" [userData]="userData"></app-card>
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
 </div>

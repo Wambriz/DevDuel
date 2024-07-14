@@ -19,10 +19,8 @@ body {
 
 .find-duelist {
   font-size: 48px;
-  /* Increased font size */
   color: #6e8efb;
   margin-bottom: 40px;
-  /* Increased margin */
   font-weight: bold;
   animation: fadeInDown 1s ease-in-out;
 }
@@ -68,6 +66,13 @@ button.submit-button:hover {
 
 button.submit-button:focus {
   outline: none;
+}
+
+.error-message {
+  color: red;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 @keyframes fadeInDown {
