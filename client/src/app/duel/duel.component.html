@@ -1,5 +1,6 @@
 <div class="container">
   <p class="find-duelist">Duel</p>
+  <p class="duel-based-on">The duel is based on followers</p>
   <div class="duel-inputs">
     <app-text-input (usernameChange)="receiveUsernameOne($event)" placeholder="Enter First Username"></app-text-input>
     <app-text-input (usernameChange)="receiveUsernameTwo($event)" placeholder="Enter Second Username"></app-text-input>
@@ -14,8 +15,5 @@
       <app-card [userData]="userOneData"></app-card>
       <app-card [userData]="userTwoData"></app-card>
     </div>
-  </div>
-  <div *ngIf="error" class="error-message">
-    {{ error }}
   </div>
 </div>

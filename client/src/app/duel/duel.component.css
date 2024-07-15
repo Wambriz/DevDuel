@@ -25,6 +25,13 @@ body {
   animation: fadeInDown 1s ease-in-out;
 }
 
+.duel-based-on {
+  font-size: 18px;
+  color: #6e8efb;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .duel-inputs {
   display: flex;
   gap: 20px;
@@ -90,7 +97,7 @@ button.submit-button:focus {
 }
 
 .winner {
-  font-size: 50px;
+  font-size: 36px;
   font-weight: bold;
   color: #6e8efb;
   margin-bottom: 20px;

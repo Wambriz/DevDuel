@@ -11,7 +11,6 @@ export class DuelComponent implements OnInit {
   usernameTwo: string = ""
   userOneData: any
   userTwoData: any
-  error: string = ''
   userOneError: string = ''
   userTwoError: string = ''
 
@@ -30,7 +29,6 @@ export class DuelComponent implements OnInit {
   async onSubmit() {
     this.userOneData = null
     this.userTwoData = null
-    this.error = ''
     this.userOneError = ''
     this.userTwoError = ''
 
@@ -46,7 +44,7 @@ export class DuelComponent implements OnInit {
     }
 
     try {
-      const userTwo = await this.userService.inspectUser(this.usernameTwo);
+      const userTwo = await this.userService.inspectUser(this.usernameTwo)
       this.userTwoData = userTwo
     } catch (error: any) {
       if (error.status === 404) {
@@ -55,24 +53,18 @@ export class DuelComponent implements OnInit {
         this.userTwoError = `Error fetching data for "${this.usernameTwo}". Please try again later.`
       }
     }
-
-    if (!this.userOneError && !this.userTwoError) {
-      this.error = ''
-    } else {
-      this.error = 'One or both usernames encountered an error. Please check the details.'
-    }
   }
 
   get winnerInfo() {
     if (!this.userOneData || !this.userTwoData) {
       return null
     }
-    const userOneScore = this.userOneData['total-stars'] + this.userOneData.followers
-    const userTwoScore = this.userTwoData['total-stars'] + this.userTwoData.followers
+    const userOneFollowers = this.userOneData.followers
+    const userTwoFollowers = this.userTwoData.followers
 
-    if (userOneScore > userTwoScore) {
+    if (userOneFollowers > userTwoFollowers) {
       return { message: `${this.userOneData.username} Wins!`, winner: 0 }
-    } else if (userOneScore < userTwoScore) {
+    } else if (userOneFollowers < userTwoFollowers) {
       return { message: `${this.userTwoData.username} Wins!`, winner: 1 }
     } else {
       return { message: 'It\'s a Tie!', winner: -1 }
