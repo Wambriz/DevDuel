@@ -6,6 +6,8 @@
   </div>
   <br />
   <button class="submit-button" (click)="onSubmit()">Duel</button>
+  <div *ngIf="userOneError" class="error-message">{{ userOneError }}</div>
+  <div *ngIf="userTwoError" class="error-message">{{ userTwoError }}</div>
   <div *ngIf="userOneData && userTwoData" class="duel-results">
     <div *ngIf="winnerInfo" class="winner">{{ winnerInfo.message }}</div>
     <div class="card-container">

@@ -11,12 +11,13 @@ export class DuelComponent implements OnInit {
   usernameTwo: string = ""
   userOneData: any
   userTwoData: any
-  error: string = ""
+  error: string = ''
+  userOneError: string = ''
+  userTwoError: string = ''
 
   constructor(private userService: UserService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   receiveUsernameOne(valueEmitted: string) {
     this.usernameOne = valueEmitted;
@@ -30,23 +31,35 @@ export class DuelComponent implements OnInit {
     this.userOneData = null
     this.userTwoData = null
     this.error = ''
+    this.userOneError = ''
+    this.userTwoError = ''
 
     try {
-      const data = await this.userService.duelUsers(this.usernameOne, this.usernameTwo)
-
-      if (Array.isArray(data) && data.length === 2) {
-        this.userOneData = data[0]
-        this.userTwoData = data[1]
-        this.error = ''
-      } else {
-        this.error = 'One or both usernames not found. Please try again.'
-      }
+      const userOne = await this.userService.inspectUser(this.usernameOne)
+      this.userOneData = userOne
     } catch (error: any) {
       if (error.status === 404) {
-        this.error = 'One or both usernames not found. Please try again.'
+        this.userOneError = `Username "${this.usernameOne}" not found.`
       } else {
-        this.error = 'Error fetching user data. Please try again later.'
+        this.userOneError = `Error fetching data for "${this.usernameOne}". Please try again later.`
       }
+    }
+
+    try {
+      const userTwo = await this.userService.inspectUser(this.usernameTwo);
+      this.userTwoData = userTwo
+    } catch (error: any) {
+      if (error.status === 404) {
+        this.userTwoError = `Username "${this.usernameTwo}" not found.`
+      } else {
+        this.userTwoError = `Error fetching data for "${this.usernameTwo}". Please try again later.`
+      }
+    }
+
+    if (!this.userOneError && !this.userTwoError) {
+      this.error = ''
+    } else {
+      this.error = 'One or both usernames encountered an error. Please check the details.'
     }
   }
 
