@@ -19,10 +19,8 @@ body {
 
 .find-duelist {
   font-size: 48px;
-  /* Increased font size */
   color: #6e8efb;
   margin-bottom: 40px;
-  /* Increased margin */
   font-weight: bold;
   animation: fadeInDown 1s ease-in-out;
 }
@@ -88,13 +86,11 @@ button.submit-button:focus {
   justify-content: space-around;
   width: 100%;
   max-width: 1200px;
-  /* Ensure the cards are centered within this width */
   gap: 20px;
 }
 
 .winner {
-  font-size: 36px;
-  /* Increased font size */
+  font-size: 50px;
   font-weight: bold;
   color: #6e8efb;
   margin-bottom: 20px;
